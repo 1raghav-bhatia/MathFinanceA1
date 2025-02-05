@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5cf9e16-fa9d-4a8c-a5e8-94a0510bbad7" name="Changes" comment="This commits all the files for the project to the repo" />
+    <list default="true" id="c5cf9e16-fa9d-4a8c-a5e8-94a0510bbad7" name="Changes" comment="This commits all the files for the project to the repo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latex/Report_446.aux" beforeDir="false" afterPath="$PROJECT_DIR$/Latex/Report_446.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latex/Report_446.log" beforeDir="false" afterPath="$PROJECT_DIR$/Latex/Report_446.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latex/Report_446.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Latex/Report_446.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latex/Report_446.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/Latex/Report_446.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latex/Report_446.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Latex/Report_446.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_script.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Main_script.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forward_curves.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/forward_curves.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spot_curves.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/spot_curves.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ytm_curves.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/ytm_curves.pdf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +24,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "1raghav-bhatia"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/1raghav-bhatia/MathFinanceA1.git",
@@ -59,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738589832267</updated>
-      <workItem from="1738589833567" duration="56481000" />
+      <workItem from="1738589833567" duration="63141000" />
     </task>
     <task id="LOCAL-00001" summary="This commits all the files for the project to the repo">
       <option name="closed" value="true" />
@@ -69,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738765081039</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="This commits all the files for the project to the repo">
+      <option name="closed" value="true" />
+      <created>1738765640011</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738765640011</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

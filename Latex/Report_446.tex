@@ -16,12 +16,12 @@
 \begin{enumerate}
     \item \hfill
     \begin{enumerate}
-        \item 
-        \item
-        \item
+        \item Governments issue bonds in order to back their spending with an asset and constrain their spending instead of artificially inflating the economy through printing currency.
+        \item Investors anticipating slower economic growth and lower inflation in the future may accept lower yields for long-term bonds, causing the long-term part of the yield curve to flatten.
+        \item QE is a monetary tool to inject liquidity in the economy by buying up long-term government bonds to lower long-term rates and stimulate economic activity, and the Fed has used QE since the pandemic by purchasing trillions of Treasury bonds.
     \end{enumerate}
-    \item 
-    \item
+    \item We selected the following 10 Canadian Government Bonds: CAN 1.5 Apr 25, CAN 0.5 Sep 25, CAN 1.5 Apr 26, CAN 4.0 Aug 26, CAN 2.75 Mar 27, CAN 3.25 Sep 27, CAN 3.0 Apr 28, CAN 4.0 Mar 29, CAN 2.25 Jun 29, and CAN 2.25 Dec 30. These bonds were chosen to get a representative maturity within each 6 month range over 5 years. This was to get robust approximations to the actual curves, as between any 2 maturities spaced out over a year, we have atleast one point.
+    \item If we track several points on a stochastic curve, the eigenvectors of their covariance matrix tell us how these points move together.  The \textbf{eigenvalues} tell us the importance of each pattern: a larger eigenvalue means a more common pattern. The \textbf{eigenvectors} characterize these patterns such that each eigenvector shows how much and in what direction each point moves when a specific pattern occurs.
 \end{enumerate}
 
 
@@ -29,11 +29,11 @@
 \section*{Empirical Questions - 75 points}
 
 \begin{enumerate}
-\setcounter{enumi}{3} % Start numbering from 4
+\setcounter{enumi}{3}
 
-    \item \textbf{Yield to Maturity (YTM) Curves - 40 points}
+    \item \textbf{Yield to Maturity (YTM) Curves}
     \begin{enumerate}
-        \item \textbf{YTM Calculation and Curves (10 points)}
+        \item \textbf{YTM Calculation and Curves}
         
         \begin{figure}[h!]
                 \centering
@@ -42,120 +42,134 @@
                 \label{fig:ytm_curves}
             \end{figure}
 
-            For each bond and for each trading day from January 6th to January 20th, 2025, we calculated the Yield to Maturity (YTM). The YTM was computed numerically using a binary search algorithm, finding the discount rate that equates the present value of the bond's cash flows to its observed dirty price. Linear interpolation was employed to construct continuous curves from the discrete set of bond YTMs for each day, allowing for the visualization of the yield curve shape and its evolution over the two-week period.
+            Here we calculated the Yield to Maturity (YTM). Linear interpolation was employed to construct continuous curves from the discrete set of YTMs, to approximate the actual yield curve.
 
-        \item \textbf{Spot Curve Derivation Pseudo-code and Curves (15 points)}
+        \item \textbf{Spot Curve Derivation: Pseudo-code and Curves}
 
-            To derive the spot curve, we employed the bootstrapping method. Bootstrapping is an iterative process that derives the zero-coupon bond yields (spot rates) from the observed prices of coupon-bearing bonds. The process starts with the shortest maturity bond and sequentially determines the spot rates for longer maturities, using the already derived spot rates to discount the coupon payments of longer-term bonds.
+            To derive the spot curve, we employed the bootstrapping method, given by the pseudo-code below:
 
-            \textbf{Pseudo-code for Spot Curve Bootstrapping:}
+\begin{verbatim}
+Function BootstrapSpotCurve(BondData, ValuationDate):
+    SpotRates = {}
+    Sort Bonds by Maturity (ascending)
+    For each Bond:
+        Given: Dirty Price (P), Coupon (C), Maturity Date
+        MaturityYears = Years from ValuationDate to MaturityDate
+        PVCoupons = 0
+		For each Coupon Payment Time before Maturity:
+            Discount coupon payment using bootstrapped SpotRate, add to PVCoupons
+        ResidualPV = Dirty Price - PVCoupons
+        SpotRate = ((Face Value + Last Coupon Payment) / 
+        ResidualPV)$^{{(1 / MaturityYears)}}$ - 1
+		Store SpotRate in SpotRates
+	Return SpotRates
+\end{verbatim}
 
-            \begin{verbatim}
-            Function BootstrapSpotCurve(BondData, ValuationDate):
-                Initialize SpotRates as an empty dictionary
-                Sort Bonds in BondData by Maturity Date (ascending)
-
-                For each Bond in Sorted Bonds:
-                    Given: Bond Dirty Price, Coupon Rate, Maturity Date
-                    Define a function PriceDifference(TrialSpotRate):
-                        CalculatedPV = 0
-                        For each coupon payment period BEFORE final maturity:
-                            Find the bootstrapped SpotRate for this period's maturity
-                            Discount the coupon payment using this SpotRate and add to CalculatedPV
-                        Discount the final cash flow (last coupon + face value) using TrialSpotRate
-                        Return DirtyPrice - CalculatedPV
-
-                    Numerically solve for SpotRate using root-finding algorithm (e.g., Brent's method)
-                    that sets PriceDifference(SpotRate) = 0
-
-                    Store the solved SpotRate in SpotRates dictionary, keyed by Bond's Maturity in Years
-
-                Return SpotRates
-            \end{verbatim}
-
+            \item \textbf{Forward Curve Derivation: Pseudo-code and Curves}
+            Here we derived the 1 year forward curves upto 4 years. The spot curve and forward curve plots are given below:
+        \begin{enumerate}
             \begin{figure}[h!]
                 \centering
-                \includegraphics[width=0.8\textwidth]{spot_curves.pdf} % Replace with your Spot Curve plot file name
-                \caption{Superimposed 5-Year Spot Rate Curves for Each Trading Day}
-                \label{fig:spot_curves}
+                \begin{minipage}{0.48\textwidth} % Adjust width as needed, less than 0.5
+                    \centering
+                    \includegraphics[width=\linewidth]{spot_curves.pdf} % Use \linewidth to fill minipage
+                    \caption*{(a) Superimposed 5-Year Spot Rate Curves} % Sub-caption (a)
+                    \label{fig:spot_curves}
+                \end{minipage}
+                \hfill % Horizontal space between minipages
+                \begin{minipage}{0.48\textwidth} % Adjust width as needed, less than 0.5
+                    \centering
+                    \includegraphics[width=\linewidth]{forward_curves.pdf} % Use \linewidth to fill minipage
+                    \caption*{(b) Superimposed 1-Year Forward Curves} % Sub-caption (b)
+                    \label{fig:forward_curves}
+                \end{minipage}
+                \caption{Spot Rate Curves and Forward Rate Curves for Each Trading Day} % Main caption for the combined figure
+                \label{fig:spot_and_forward_curves} 
             \end{figure}
+            
+\begin{verbatim}
+Function DeriveForwardCurve(SpotCurve):
+    ForwardRates = {}
+    ForwardTerms = [1, 2, 3, 4]
+    StartTerm = 1.0
+	For each ForwardTenor in ForwardTerms:
+        EndTerm = StartTerm + ForwardTenor
+        SpotRateStart = Interpolate SpotCurve at StartTerm
+        SpotRateEnd = Interpolate SpotCurve at EndTerm
+		ForwardRate =  (((1 + SpotRateEnd / 2)$^{{(2 * EndTerm)}}$) 		/
+        ((1 + SpotRateStart / 2)^{{(2 * StartTerm)}}))$^{{(1 / 
+        (2 * ForwardTenor))}}$ - 1
 
-            Figure \ref{fig:spot_curves} shows the resulting 5-year spot curves for each trading day, superimposed on the same plot. Similar to the YTM curves, linear interpolation was used to generate continuous spot rate curves from the bootstrapped spot rates at discrete maturities.
+        Store ForwardRate in ForwardRates
+    Return ForwardRates
+\end{verbatim}
+	\end{enumerate}
+	\end{enumerate}
 
-        \item \textbf{Forward Curve Derivation Pseudo-code and Curves (15 points)}
+    \item \textbf{Covariance Matrices of Yield and Forward Rate Log-Returns}
 
-            The 1-year forward curve, representing the series of 1-year forward rates starting from year 1, was derived from the bootstrapped spot curve. The 1-year forward rate for the period between year $t$ and year $t+1$ is the rate agreed upon today for a loan that starts at time $t$ and is repaid at time $t+1$. We calculated the 1-year forward curve for terms ranging from 1-year forward to 1-year forward 4-years ahead (1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr).
+        To analyze the co-movement and dynamics of the yield curve and forward rates, we calculated covariance matrices for the time series of daily log-returns. Prior to covariance matrix calculation, the log-returns were standardized (mean-centered and divided by standard deviation) to ensure that variables with different scales do not disproportionately influence the decomposition results.
 
-           \textbf{Pseudo-code for 1-Year Forward Curve Derivation:}
-
-            \begin{verbatim}
-            Function DeriveForwardCurve(SpotCurve):
-                Initialize ForwardRates as an empty dictionary
-                Define ForwardTerms = [1, 2, 3, 4] (for 1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr)
-                StartTerm = 1.0 (year)
-
-                For each ForwardTenor in ForwardTerms:
-                    EndTerm = StartTerm + ForwardTenor
-                    SpotRateStart = Interpolate SpotCurve at StartTerm (using linear interpolation)
-                    SpotRateEnd = Interpolate SpotCurve at EndTerm (using linear interpolation)
-
-                    Calculate ForwardRate using discrete semi-annual compounding formula:
-                    ForwardRate =  (((1 + SpotRateEnd / 2)^(2 * EndTerm)) / ((1 + SpotRateStart / 2)^(2 * StartTerm)))^(1 / (2 * ForwardTenor)) - 1
-
-                    Store ForwardRate in ForwardRates dictionary with term identifier (e.g., "1yr-ForwardTenor-yr")
-
-                Return ForwardRates
-            \end{verbatim}
-
-
-            \begin{figure}[h!]
-                \centering
-                \includegraphics[width=0.8\textwidth]{forward_curves.pdf} % Replace with your Forward Curve plot file name
-                \caption{Superimposed 1-Year Forward Curves for Each Trading Day}
-                \label{fig:forward_curves}
-            \end{figure}
-
-            Figure \ref{fig:forward_curves} illustrates the resulting 1-year forward curves for each trading day. The x-axis represents the tenor of the forward rate (years from the start of the forward period), and the y-axis represents the 1-year forward rate in percentage points.  These curves depict the market's expectation of future 1-year interest rates at different horizons.
-    \end{enumerate}
-
-    \item \textbf{Covariance Matrices of Yield and Forward Rate Log-Returns - 20 points}
-
-        To analyze the co-movement and dynamics of the yield curve and forward rates, we calculated covariance matrices for the time series of daily log-returns. Log-returns were computed for 5 different YTM rates (corresponding to 1-year, 2-year, 3-year, 4-year, and 5-year maturities) and for the four 1-year forward rates (1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr).  The daily log-return $X_{i,j}$ for variable $i$ on day $j$ was calculated as:
-
+\begin{table}[h!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Covariance Matrix of YTM Log Returns (Standardized)}
+        \label{tab:covariance_ytm}
+        \resizebox{\linewidth}{!}{% Resize table to fit within minipage width
         \[
-        X_{i,j} = \log\left(\frac{r_{i,j+1}}{r_{i,j}}\right)
+        \begin{bmatrix}
+            1.0000 & 0.7754 & 0.6754 & 0.7294 & 0.6399 \\
+            0.7754 & 1.0000 & 0.9731 & 0.9695 & 0.9612 \\
+            0.6754 & 0.9731 & 1.0000 & 0.9796 & 0.9778 \\
+            0.7294 & 0.9695 & 0.9796 & 1.0000 & 0.9857 \\
+            0.6399 & 0.9612 & 0.9778 & 0.9857 & 1.0000
+        \end{bmatrix}
         \]
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \caption{Covariance Matrix of Forward Rate Log Returns (Standardized)}
+        \label{tab:covariance_forward}
+        \resizebox{\linewidth}{!}{% Resize table to fit within minipage width
+        \[
+        \begin{bmatrix}
+            1.0000 & 0.9711 & 0.9346 & 0.9643 \\
+            0.9711 & 1.0000 & 0.9581 & 0.9681 \\
+            0.9346 & 0.9581 & 1.0000 & 0.9855 \\
+            0.9643 & 0.9681 & 0.9855 & 1.0000
+        \end{bmatrix}
+        \]
+        }
+    \end{minipage}
+\end{table}
 
-        where $r_{i,j}$ is the yield or forward rate $i$ on day $j$.  Two covariance matrices were then computed: one for the 5 YTM log-return time series and another for the 4 forward rate log-return time series, using the data from the 10 trading days.  Prior to covariance matrix calculation, the log-returns were standardized (mean-centered and divided by standard deviation) to ensure that variables with different scales do not disproportionately influence the PCA results.
+\item \textbf{Eigenvalues and Eigenvectors}
 
-    \item \textbf{Principal Component Analysis (PCA) - 15 points}
+   	  The eigenvalue and eigenvector decomposition revealed the following:
 
-        Principal Component Analysis (PCA) was performed on both covariance matrices (YTM log-returns and forward rate log-returns) to identify the dominant modes of variation in interest rates. PCA decomposes the covariance matrix into eigenvalues and eigenvectors. The eigenvalues represent the variance explained by each principal component, and the eigenvectors represent the directions of these principal components in the data space.
+    \textbf{For Yield to Maturity (YTM) Log-Returns:}
+    \begin{itemize}
+        \item \textbf{Eigenvalues:} $\lambda = [4.49, 0.45, 0.0034, 0.0320, 0.0178]$
+        \item \textbf{Eigenvectors:}
+        $V = \{ \mathbf{v_1} = [-0.47, -0.47, -0.46, -0.47, -0.46], \mathbf{v_2} = [0.90, -0.02, -0.25, -0.14, -0.32], \mathbf{v_3} = [0.18, -0.35, 0.27, -0.65, 0.60], \mathbf{v_4} = [0.10, -0.64, -0.37, 0.56, 0.37], \mathbf{v_5} = [-0.06, 0.50, -0.72, -0.18, 0.44] \}$
+        The first eigenvalue being the largest means that it explains a majority of the variance in YTM log-returns, and the first eigenvector being approximately a vector of 1's indicates a level shift of the yield curve over time.  
+    \end{itemize}
 
-        The eigenvalue and eigenvector decomposition of the covariance matrices revealed the following:
-
-        \textbf{For Yield to Maturity (YTM) Log-Returns:}
-
-        \begin{itemize}
-            \item \textbf{Covariance Matrix:}  [Present the YTM Covariance Matrix here - LaTeX table format]
-            \item \textbf{Eigenvalues:} [List the Eigenvalues for YTM - e.g.,  $\lambda_1 = ..., \lambda_2 = ..., ...$]
-            \item \textbf{First Eigenvector (Principal Component):} $v_1 = $ [List the First Eigenvector for YTM - e.g., $v_{1} = [..., ..., ..., ..., ...]$]
-        \end{itemize}
-
-       \textbf{For Forward Rate Log-Returns:}
-
-        \begin{itemize}
-            \item \textbf{Covariance Matrix:} [Present the Forward Rate Covariance Matrix here - LaTeX table format]
-            \item \textbf{Eigenvalues:} [List the Eigenvalues for Forward Rates - e.g.,  $\lambda_1 = ..., \lambda_2 = ..., ...$]
-            \item \textbf{First Eigenvector (Principal Component):} $v_1 = $ [List the First Eigenvector for Forward Rates - e.g., $v_{1} = [..., ..., ..., ...]$]
-        \end{itemize}
-
-        The first eigenvalue for the YTM covariance matrix is [State the Largest Eigenvalue for YTM]. This eigenvalue is significantly larger than the subsequent eigenvalues, indicating that the first principal component explains a substantial portion of the variance in YTM log-returns. The associated eigenvector, approximately \texttt{[0.446757, 0.445608, 0.448978, 0.447824, 0.446893]}, has roughly equal and positive components. This suggests that the first principal component for YTM represents a \textbf{level shift} or \textbf{parallel shift} in the yield curve, where yields across all maturities tend to move in the same direction.
-
-         Similarly, for forward rates, the largest eigenvalue is [State the Largest Eigenvalue for Forward Rates], and the first eigenvector, approximately \texttt{[-0.494337, -0.501466, -0.501491, -0.502660]}, also suggests a dominant mode of variation.  [Elaborate on the interpretation of the first eigenvector for forward rates - e.g., does it also represent a level shift, or something else? Consider the negative signs].
+   \textbf{For Forward Rate Log-Returns:}
+    \begin{itemize}
+        \item \textbf{Eigenvalues:} $\lambda = [3.89, 0.073, 0.028, 0.0081]$
+        \item \textbf{Eigenvectors:} 
+        $V = \{ \mathbf{v_1} = [-0.49, -0.50, -0.49, -0.50], \mathbf{v_2} = [-0.65, -0.28, 0.65, 0.27], \mathbf{v_3} = [0.46, -0.80, -0.04, 0.38], \mathbf{v_4} = [-0.34, 0.17, -0.57, 0.73] \}$
+        The first eigenvalue being the largest means that it explains a majority of the variance in forward rate log-returns, and the first eigenvector being approximately a vector of 1's indicates a level shift of the forward curve over time.  
+    \end{itemize}
 
 \end{enumerate}
 
 \section*{References and GitHub Link to Code}
+
+Github link: https://github.com/1raghav-bhatia/MathFinanceA1.git
 
 \end{document}

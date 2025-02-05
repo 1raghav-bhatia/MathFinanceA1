@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.14)  4 FEB 2025 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.14)  5 FEB 2025 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -835,150 +835,196 @@ Package pdftex.def Info: ytm_curves.pdf  used on input line 40.
 (pdftex.def)             Requested size: 370.02345pt x 185.01056pt.
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
+51.
+(C:\Users\1ragh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmtt.fd
+File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
 [1
 
 {C:/Users/1ragh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/1rag
-h/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <./ytm_curves.pdf
->]
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-53.
- (C:\Users\1ragh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmtt.fd
-File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Overfull \hbox (30.72118pt too wide) in paragraph at lines 74--74
- []                            \OT1/lmtt/m/n/10 Find the bootstrapped SpotRate 
-for this period's maturity[] 
+h/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/1ragh/Ap
+pData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rmtt.enc}]
+Overfull \hbox (9.72124pt too wide) in paragraph at lines 66--66
+ []            \OT1/lmtt/m/n/10 Discount coupon payment using bootstrapped Spot
+Rate, add to PVCoupons[] 
  []
 
-
-Overfull \hbox (104.22096pt too wide) in paragraph at lines 74--74
- []                            \OT1/lmtt/m/n/10 Discount the coupon payment usi
-ng this SpotRate and add to CalculatedPV[] 
- []
-
-
-Overfull \hbox (104.22096pt too wide) in paragraph at lines 74--74
- []                        \OT1/lmtt/m/n/10 Discount the final cash flow (last 
-coupon + face value) using TrialSpotRate[] 
- []
-
-
-Overfull \hbox (119.97092pt too wide) in paragraph at lines 74--74
- []                    \OT1/lmtt/m/n/10 Numerically solve for SpotRate using ro
-ot-finding algorithm (e.g., Brent's method)[] 
- []
-
-
-Overfull \hbox (130.47089pt too wide) in paragraph at lines 74--74
- []                    \OT1/lmtt/m/n/10 Store the solved SpotRate in SpotRates 
-dictionary, keyed by Bond's Maturity in Years[] 
- []
-
-<spot_curves.pdf, id=69, 867.24pt x 433.62pt>
+<spot_curves.pdf, id=29, 867.24pt x 433.62pt>
 File: spot_curves.pdf Graphic file (type pdf)
 <use spot_curves.pdf>
-Package pdftex.def Info: spot_curves.pdf  used on input line 78.
-(pdftex.def)             Requested size: 370.02345pt x 185.01056pt.
-
-
-[2{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rmtt.enc}
- <./spot_curves.pdf>]
+Package pdftex.def Info: spot_curves.pdf  used on input line 75.
+(pdftex.def)             Requested size: 222.01125pt x 111.005pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 87.
+(Font)              <10> on input line 78.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 87.
+(Font)              <7> on input line 78.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 87.
-
-Overfull \hbox (62.22108pt too wide) in paragraph at lines 108--108
- []                \OT1/lmtt/m/n/10 Define ForwardTerms = [1, 2, 3, 4] (for 1yr
--1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr)[] 
- []
-
-
-Overfull \hbox (104.22096pt too wide) in paragraph at lines 108--108
- []                    \OT1/lmtt/m/n/10 SpotRateStart = Interpolate SpotCurve a
-t StartTerm (using linear interpolation)[] 
- []
-
-
-Overfull \hbox (83.22102pt too wide) in paragraph at lines 108--108
- []                    \OT1/lmtt/m/n/10 SpotRateEnd = Interpolate SpotCurve at 
-EndTerm (using linear interpolation)[] 
- []
-
-
-Overfull \hbox (51.72112pt too wide) in paragraph at lines 108--108
- []                    \OT1/lmtt/m/n/10 Calculate ForwardRate using discrete se
-mi-annual compounding formula:[] 
- []
-
-
-Overfull \hbox (356.22023pt too wide) in paragraph at lines 108--108
- []                    \OT1/lmtt/m/n/10 ForwardRate =  (((1 + SpotRateEnd / 2)^
-(2 * EndTerm)) / ((1 + SpotRateStart / 2)^(2 * StartTerm)))^(1 / (2 * ForwardTe
-nor)) - 1[] 
- []
-
-
-Overfull \hbox (188.22072pt too wide) in paragraph at lines 108--108
- []                    \OT1/lmtt/m/n/10 Store ForwardRate in ForwardRates dicti
-onary with term identifier (e.g., "1yr-ForwardTenor-yr")[] 
- []
-
-<forward_curves.pdf, id=122, 867.24pt x 433.62pt>
+(Font)              <5> on input line 78.
+<forward_curves.pdf, id=30, 867.24pt x 433.62pt>
 File: forward_curves.pdf Graphic file (type pdf)
 <use forward_curves.pdf>
-Package pdftex.def Info: forward_curves.pdf  used on input line 113.
-(pdftex.def)             Requested size: 370.02345pt x 185.01056pt.
+Package pdftex.def Info: forward_curves.pdf  used on input line 82.
+(pdftex.def)             Requested size: 222.01125pt x 111.005pt.
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \begin{verbatim}
+                     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-[3{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
-c} <./forward_curves.pdf>]
+
+[2 <./ytm_curves.pdf> <./spot_curves.pdf> <./forward_curves.pdf>]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.129         }
+               
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.129         }
+               
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129         }
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.145         }
+               
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.145         }
+               
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145         }
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-40.
-
+55.
 (C:\Users\1ragh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
+Overfull \hbox (55.36708pt too wide) in paragraph at lines 156--159
+[]\OT1/lmr/bx/n/10 Eigenvectors: $\OML/lmm/m/it/10 V \OT1/lmr/m/n/10 = \OMS/lms
+y/m/n/10 f[] \OT1/lmr/m/n/10 = [\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m
+/it/10 :\OT1/lmr/m/n/10 47\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/1
+0 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 47\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\
+OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 46\OML/lmm/m/it/10 ; \OMS/lms
+y/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 47\OML/lmm/m/it/
+10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 46]
+\OML/lmm/m/it/10 ; [] \OT1/lmr/m/n/10 = [0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 90\
+OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/l
+mr/m/n/10 02\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/
+it/10 :\OT1/lmr/m/n/10 25\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10
+ 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 14\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\O
+T1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 32]\OML/lmm/m/it/10 ; [] \OT1/
+lmr/m/n/10 =
+ []
 
-[4{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.en
-c}{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+Overfull \hbox (38.48898pt too wide) in paragraph at lines 156--159
+\OT1/lmr/m/n/10 [0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 18\OML/lmm/m/it/10 ; \OMS/l
+msy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 35\OML/lmm/m/i
+t/10 ; \OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 27\OML/lmm/m/it/10 ; 
+\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 65\OML/l
+mm/m/it/10 ; \OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 60]\OML/lmm/m/i
+t/10 ; [] \OT1/lmr/m/n/10 = [0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 10\OML/lmm/m/it
+/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 64
+\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/
+lmr/m/n/10 37\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n
+/10 56\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 37]
+\OML/lmm/m/it/10 ; [] \OT1/lmr/m/n/10 = [\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 0\
+OML/lmm/m/it/10 :\OT1/lmr/m/n/10 06\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0\OML/lmm
+/m/it/10 :\OT1/lmr/m/n/10 50\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n
+/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 72\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^
+@\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 18\OML/lmm/m/it/10 ; \OT1/l
+mr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 44]\OMS/lmsy/m/n/10 g$
+ []
 
 
-[5] (Report_446.aux)
+
+[3{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.en
+c}{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
+c}{C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{
+C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+(Report_446.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Report_446.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21100 strings out of 473682
- 394022 string characters out of 5719215
- 765174 words of memory out of 5000000
- 43767 multiletter control sequences out of 15000+600000
- 595828 words of font info for 79 fonts, out of 8000000 for 9000
+ 21115 strings out of 473682
+ 394334 string characters out of 5719215
+ 768300 words of memory out of 5000000
+ 43778 multiletter control sequences out of 15000+600000
+ 601703 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,6n,107p,689b,655s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,13n,107p,549b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
-b><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pf
-b><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pf
-b><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb
+b><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx7.pfb
+><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb
+><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb
 ><C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb>
 <C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><
 C:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C
-:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/
-Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Report_446.pdf (5 pages, 273156 bytes).
+:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C
+:/Users/1ragh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on Report_446.pdf (3 pages, 271263 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
